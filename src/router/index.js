@@ -4,9 +4,6 @@ import Hello from 'components/Hello'
 import Table from 'components/Table'
 import About from 'components/About'
 
-
-
-
 Vue.use(Router)
 
 export default new Router({
