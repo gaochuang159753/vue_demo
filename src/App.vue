@@ -7,9 +7,11 @@
     </div>
     <div class="left">
       <div class="nav">
-        <router-link class="nav_li" to="/">Home</router-link>
-        <router-link class="nav_li" to="/table">Table</router-link>
-        <router-link class="nav_li" to="/about">About</router-link>
+        <router-link class="nav_li" to="/">首页</router-link>
+        <router-link class="nav_li" to="/xzgl">薪资管理</router-link>
+        <router-link class="nav_li" to="/zzrs">组织人事</router-link>
+        <router-link class="nav_li" to="/qxgl">权限管理</router-link>
+        <router-link class="nav_li" to="/oa">工作台</router-link>
       </div>
     </div>
   </div>
@@ -59,6 +61,7 @@ body{}
   cursor: pointer;
   display: block;
   color: #666;
+  text-decoration: none;
 }
 .nav_li:last-child{
   border-bottom: none;
