@@ -17,9 +17,27 @@
         </div>
 
         <div class="notice_con" v-show="activeIndex==2">
+            <el-popover ref="popover4" placement="right" width="400" trigger="click">
+                <el-input
+                  placeholder="输入关键字进行过滤"
+                  v-model="filterText"
+                  class="notice_con_pop_input">
+                </el-input>
+                <el-tree
+                  :data="noticeTreeData"
+                  show-checkbox
+                  node-key="id"
+                  :default-expanded-keys="[1]"
+                  :default-checked-keys="[5]"
+                  :filter-node-method="filterNode"
+                  :props="defaultProps"
+                  ref="tree">
+                </el-tree>
+            </el-popover>
             <el-form label-position="right" label-width="150px" :model="noticeForm">
                 <el-form-item label="选择接收人" class="notice_form_input">
-                    <el-input v-model="noticeForm.name"></el-input>
+                    <!-- <el-input v-model="noticeForm.name"></el-input> -->
+                    <el-button  v-popover:popover4>获取联系人</el-button>
                 </el-form-item>
                 <el-form-item label="公告标题" class="notice_form_input">
                     <el-input v-model="noticeForm.title"></el-input>
@@ -35,6 +53,8 @@
                 <el-button @click="activeIndex=1">取消</el-button>
                 <el-button type="primary">发送</el-button>
             </div>
+            
+<!-- <el-button v-popover:popover4>click 激活</el-button> -->
 
         </div>
     </div>
@@ -45,18 +65,47 @@ export default {
     name: 'oaNotice', 
     data () {
         return{
+            filterText: '',
             noticeList: [],
             noticePage: 1,
             noticeTotalPage: 0,
             activeIndex: true,
             noticeForm: '',
+            noticeTreeData: [{
+              id: 1,
+              label: '一级 1',
+              children: [{
+                id: 4,
+                label: '二级 1-1',
+                children: [{
+                  id: 9,
+                  label: '三级 1-1-1'
+                }, {
+                  id: 10,
+                  label: '三级 1-1-2'
+                }]
+              }]
+            }],
+            defaultProps: {
+              children: 'children',
+              label: 'label'
+            }
         }
     }, 
     mounted: function (){
         this.ajax(this.noticePage)
-    },                                 
+    }, 
+    watch: {
+      filterText(val) {
+        this.$refs.tree.filter(val);
+      }
+    },                                
    
     methods: {
+        filterNode(value, data) {
+            if (!value) return true;
+            return data.label.indexOf(value) !== -1;
+          },
         console: function(){
             console.log(this.activeIndex);
         },
@@ -101,5 +150,8 @@ export default {
 }
 .notice_form_input{
     width: 60%;
+}
+.notice_con_pop_input{
+    margin-bottom: 10px;
 }
 </style>
