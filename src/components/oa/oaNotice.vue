@@ -53,9 +53,6 @@
                 <el-button @click="activeIndex=1">取消</el-button>
                 <el-button type="primary">发送</el-button>
             </div>
-            
-<!-- <el-button v-popover:popover4>click 激活</el-button> -->
-
         </div>
     </div>
 </template>
@@ -69,7 +66,7 @@ export default {
             noticeList: [],
             noticePage: 1,
             noticeTotalPage: 0,
-            activeIndex: true,
+            activeIndex: 1,
             noticeForm: '',
             noticeTreeData: [{
               id: 1,
@@ -128,10 +125,6 @@ export default {
             .catch(function (err) {
                 console.log(err);
             });
-        },
-        alertBox: function(){
-            this.noticeList[0] = 'helloworld';
-            console.log(this.noticeList);
         },
         changePage: function(page){
             this.noticePage = page
