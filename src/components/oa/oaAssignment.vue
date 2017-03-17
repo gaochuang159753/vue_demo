@@ -3,6 +3,7 @@
         <el-menu theme="light" :default-active="activeIndex" class="assignment_nav" mode="horizontal">
             <el-menu-item index="1" @click="activeIndex=1">任务列表</el-menu-item>
             <el-menu-item index="2" @click="activeIndex=2">新建任务</el-menu-item>
+            <el-menu-item index="3" @click="activeIndex=3">新建任务</el-menu-item>
         </el-menu>
         <div class="assignment_con" v-show="activeIndex==1">
             <el-table :data="assignmentList" style="width: 100%" align="center" class="assignment_table">
@@ -21,40 +22,78 @@
                 <el-pagination layout="prev, pager, next" :total="assignmentTotalPage" @current-change="changePage"></el-pagination>
             </div>
         </div>
-        <div class="assignment_con" v-show="activeIndex==3">
-            <div class="assignment_con_label">
-                <label for="">名字</label>
-                <div>{{assignmentDetailsList.userName}}</div>
-            </div>
-            <div class="assignment_con_label">
-                <label for="">时间</label>
-                <div>{{assignmentDetailsList.createTime}}</div>
-            </div>
-            <div class="assignment_con_label">
-                <label for="">任务标题</label>
-                <div>{{assignmentDetailsList.title}}</div>
-            </div>
-            <div class="assignment_con_label">
-                <label for="">任务内容</label>
-                <div>{{assignmentDetailsList.content}}</div>
-            </div>
-            <div class="assignment_con_label">
-                <label for="">开始时间</label>
-                <div>{{assignmentDetailsList.startDate | dateZ}}</div>
-            </div>
-            <div class="assignment_con_label">
-                <label for="">结束时间</label>
-                <div>{{assignmentDetailsList.expireDate | dateZ}}</div>
-            </div>
-            <div class="assignment_con_label">
-                <label for="">任务进程</label>
-                <div>{{assignmentDetailsList.userNam}}</div>
+        <div class="assignment_con" v-show="activeIndex==2">
+            <el-form label-position="right" label-width="150px" :model="assignmentForm">
+                <el-form-item label="执行人" class="assignment_form_input">
+                    <el-button>获取执行人</el-button>
+                </el-form-item>
+                <el-form-item label="任务标题" class="assignment_form_input">
+                    <el-input v-model="assignmentForm.signature" placeholder="请输入签名"></el-input>
+                </el-form-item>
+                <el-form-item label="任务内容" class="assignment_form_input">
+                    <el-input v-model="assignmentForm.signature" placeholder="请输入签名"></el-input>
+                </el-form-item>
+                <el-form-item label="开始时间" class="assignment_form_input">
+                    <div class="block assignment_form_input">
+                        <el-date-picker
+                        v-model="startTime"
+                        type="date"
+                        placeholder="选择日期"
+                        :picker-options="pickerOptions">
+                        </el-date-picker>
+                    </div>
+                </el-form-item>
+                <el-form-item label="结束时间" class="assignment_form_input">
+                    <div class="block assignment_form_input">
+                        <el-date-picker
+                        v-model="endTime"
+                        type="date"
+                        placeholder="选择日期"
+                        :picker-options="pickerOptions">
+                        </el-date-picker>
+                    </div>
+                </el-form-item>
+            </el-form>
+            <div>
+                <el-button @click="activeIndex=1">返回</el-button>
+                <el-button type="primary">发送</el-button>
             </div>
         </div>
+        <div class="assignment_con" v-show="activeIndex==3">
+            <el-form label-position="right" label-width="150px" :model="assignmentDetailsData">
+                <el-form-item label="用户名" class="assignment_form_input">
+                    <el-input v-model="assignmentDetailsData.userName" :disabled="true"></el-input>
+                </el-form-item>
+                <el-form-item label="发送时间" class="assignment_form_input">
+                    <el-input v-model="assignmentDetailsData.createTime" :disabled="true"></el-input>
+                </el-form-item>
+                <el-form-item label="执行对象" class="assignment_form_input">
+                    <el-input v-model="assignmentDetailsData.sendToPersonName" :disabled="true"></el-input>
+                </el-form-item>
+                <el-form-item label="任务标题" class="assignment_form_input">
+                    <el-input v-model="assignmentDetailsData.title" :disabled="true"></el-input>
+                </el-form-item>
+                <el-form-item label="任务内容" class="assignment_form_input">
+                    <el-input v-model="assignmentDetailsData.content" :disabled="true"></el-input>
+                </el-form-item>
+                <el-form-item label="开始时间" class="assignment_form_input">
+                    <el-input v-model="assignmentDetailsData.startDate" :disabled="true"></el-input>
+                </el-form-item>
+                <el-form-item label="截止时间" class="assignment_form_input">
+                    <el-input v-model="assignmentDetailsData.expireDate" :disabled="true"></el-input>
+                </el-form-item>
+            </el-form>
+            <div>
+                <el-button @click="activeIndex=1">返回</el-button>
+            </div>
+        </div>
+        
     </div>
 </template>
 
 <script>
+import Util from '../module/util.js';
+
 export default {
     name: 'oaAssignment',
     data (){
@@ -64,21 +103,23 @@ export default {
             assignmentTotalPage: 0,
             activeIndex: 1,
             assignmentForm: '',
-            assignmentDetailsList: '',
+            assignmentDetailsData: {},
+            startTime: '',
+            endTime: '',
+            pickerOptions: {
+                disabledDate(time) {
+                    return time.getTime() < Date.now() - 8.64e7;
+                }
+            },
         }
     },
     mounted: function (){
         this.ajax(this.assignmentPage)
     }, 
-    filters: {
-        dateZ: function (value){
-            return new Date(parseInt(value)).toLocaleString().replace(/:\d{1,2}$/,' '); 
-        }
-    },
     methods: {
         ajax: function (num){
             var self = this;
-            this.$ajax.post('http://192.168.3.222:8080/hrm/api.do', 
+            this.$ajax.post(Util.url, 
                 'method=taskInfo/getTaskInfos'
                 +'&param='+JSON.stringify({
                     "userId": 61,
@@ -102,11 +143,13 @@ export default {
             this.ajax(this.assignmentPage);
         },
         assignmentDetails: function(index){
-            this.assignmentDetailsList = this.assignmentList[index];
-            this.assignmentDetailsCourse(this.assignmentDetailsList.id);
+            this.assignmentDetailsData = this.assignmentList[index];
+            // this.assignmentDetailsCourse(this.assignmentDetailsList.id);
+            this.assignmentDetailsData.startDate = Util.dataTransform(this.assignmentDetailsData.startDate);
+            this.assignmentDetailsData.expireDate = Util.dataTransform(this.assignmentDetailsData.expireDate);
         },
         assignmentDetailsCourse: function(id){
-            this.$ajax.post('http://192.168.3.222:8080/hrm/api.do', 
+            this.$ajax.post(Util.url, 
                 'taskInfo/getTaskInfoById'
                 +'&param='+JSON.stringify({
                         "userId": 61,
@@ -147,5 +190,8 @@ export default {
     .assignment_con_label div{
         text-align: left;
         padding-left: 120px;
+    }
+    .assignment_form_input{
+        width: 60%;
     }
 </style>

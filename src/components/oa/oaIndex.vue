@@ -2,10 +2,10 @@
     <div id='oa'>
         <div class="oa_left">
             <el-row class="oa_left_nav" :gutter="20">
-                <el-col :span="6"><router-link class="oa_left_nav_li" to="/oa/report">工作汇报</router-link></el-col>
-                <el-col :span="6"><router-link class="oa_left_nav_li" to="/oa/examine">审批</router-link></el-col>
-                <el-col :span="6"><router-link class="oa_left_nav_li" to="/oa/assignment">任务</router-link></el-col>
-                <el-col :span="6"><router-link class="oa_left_nav_li" to="/oa/notice">公告</router-link></el-col>
+                <el-col :span="6"><router-link class="oa_left_nav_li" to="/oa/report" active-class="active">工作汇报</router-link></el-col>
+                <el-col :span="6"><router-link class="oa_left_nav_li" to="/oa/examine" active-class="active">审批</router-link></el-col>
+                <el-col :span="6"><router-link class="oa_left_nav_li" to="/oa/assignment" active-class="active">任务</router-link></el-col>
+                <el-col :span="6"><router-link class="oa_left_nav_li" to="/oa/notice" active-class="active">公告</router-link></el-col>
             </el-row>
             <div class="oa_left_con">
                 <router-view keep-alive></router-view>
@@ -17,8 +17,10 @@
 <script>
 export default {
     name: 'oa',
-    data () {
-
+    data() {
+        return{
+            activeNav: 4,
+        }
     }
 }
 </script>
@@ -33,5 +35,9 @@ export default {
     color: #666;
     text-decoration: none;
     border: 1px solid #eee;
+}
+.oa_left_nav_li.active{
+    
+    border-color: #2C3E50
 }
 </style>
