@@ -27,16 +27,15 @@ export default {
         }
     },
     mounted: function (){
-        this.ajax()
     }, 
     methods: {
-        ajax: function (){
+        ajax: function (id){
             var self = this;
             this.$ajax.post(Util.url, 
                 'method=reply/getReplyByPid'
                 +'&param='+JSON.stringify({
                     "companyId": 61,
-                    "pid": 328,
+                    "pid": id,
                     "sceneType": 2,
                 })
             )
@@ -48,6 +47,9 @@ export default {
                 console.log(err);
             });
         },
+        consolelog: function (){
+            console.log('haoma')
+        }
         // 回复
         // 回复别人的回复
         // 点赞

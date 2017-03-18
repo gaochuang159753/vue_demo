@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="new_oa" v-show="activeIndex==3">
-            <div class="new_oa_list clearfix">
+            <div class="new_oa_list clearfix" id="parent">
                 <span class="new_oa_list_header">{{assignmentDetailsData.userName}}</span>
                 <div class="new_oa_list_msg">
                     <span>{{assignmentDetailsData.userName}}</span>
@@ -82,7 +82,7 @@
                 <el-input placeholder="请输入内容" class="new_oa_list_con_input" v-show="replyInputToggle == 1"></el-input>
                 <el-button type="text" class="new_oa_list_con_btn" v-show="replyInputToggle == 1">提交</el-button>
                 </div>
-                <reply-component></reply-component>
+                <reply-component ref="profile"></reply-component>
                 <div>
                 <el-button @click="activeIndex=1">返回</el-button>
             </div>
@@ -94,6 +94,7 @@
 <script>
 import Util from '../../script/util.js';
 import replyComponent from '../oa/replyComponent.vue';
+
 
 export default {
     name: 'oaAssignment',
@@ -145,6 +146,7 @@ export default {
         },
         assignmentDetails: function(index){
             this.assignmentDetailsData = this.assignmentList[index];
+            this.$refs.profile.ajax(this.assignmentDetailsData.id);
             // this.assignmentDetailsCourse(this.assignmentDetailsList.id);
             this.assignmentDetailsData.startDate = Util.dataTransform(this.assignmentDetailsData.startDate);
             this.assignmentDetailsData.expireDate = Util.dataTransform(this.assignmentDetailsData.expireDate);
