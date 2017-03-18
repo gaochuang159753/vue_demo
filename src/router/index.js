@@ -18,6 +18,11 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/index',
+      name: 'null',
+      component: index
+    },
+    {
       path: '/',
       name: 'index',
       component: index

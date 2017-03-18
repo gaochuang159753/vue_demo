@@ -1,0 +1,47 @@
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+  color: #2c3e50;
+  font-size: 14px;
+  padding-top: 60px;
+}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+
+.new_oa{
+    width: 30%;
+}
+.new_oa_list{
+    border: 1px solid #bfcbd9;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.new_oa_list_header{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    background: #2C3E50;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    float: left;
+    margin-right: 5px;
+}
+
+.new_oa_list_msg{
+    padding-left: 50px;
+}
+.new_oa_list_msg span{
+    line-height: 50px;
+}
+.new_oa_list .new_oa_list_con_btn{
+    float: right;
+    padding: 0 10px;
+    line-height: 30px;
+    cursor: pointer;
+}
+

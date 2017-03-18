@@ -1,9 +1,8 @@
 <template>
     <div id='oaAssignment'>
-        <el-menu theme="light" :default-active="activeIndex" class="assignment_nav" mode="horizontal">
+        <el-menu theme="light" class="assignment_nav" mode="horizontal">
             <el-menu-item index="1" @click="activeIndex=1">任务列表</el-menu-item>
             <el-menu-item index="2" @click="activeIndex=2">新建任务</el-menu-item>
-            <el-menu-item index="3" @click="activeIndex=3">新建任务</el-menu-item>
         </el-menu>
         <div class="assignment_con" v-show="activeIndex==1">
             <el-table :data="assignmentList" style="width: 100%" align="center" class="assignment_table">
@@ -54,36 +53,37 @@
                     </div>
                 </el-form-item>
             </el-form>
-            <div>
+            <div class="assignment_btn">
                 <el-button @click="activeIndex=1">返回</el-button>
                 <el-button type="primary">发送</el-button>
             </div>
         </div>
-        <div class="assignment_con" v-show="activeIndex==3">
-            <el-form label-position="right" label-width="150px" :model="assignmentDetailsData">
-                <el-form-item label="用户名" class="assignment_form_input">
-                    <el-input v-model="assignmentDetailsData.userName" :disabled="true"></el-input>
-                </el-form-item>
-                <el-form-item label="发送时间" class="assignment_form_input">
-                    <el-input v-model="assignmentDetailsData.createTime" :disabled="true"></el-input>
-                </el-form-item>
-                <el-form-item label="执行对象" class="assignment_form_input">
-                    <el-input v-model="assignmentDetailsData.sendToPersonName" :disabled="true"></el-input>
-                </el-form-item>
-                <el-form-item label="任务标题" class="assignment_form_input">
-                    <el-input v-model="assignmentDetailsData.title" :disabled="true"></el-input>
-                </el-form-item>
-                <el-form-item label="任务内容" class="assignment_form_input">
-                    <el-input v-model="assignmentDetailsData.content" :disabled="true"></el-input>
-                </el-form-item>
-                <el-form-item label="开始时间" class="assignment_form_input">
-                    <el-input v-model="assignmentDetailsData.startDate" :disabled="true"></el-input>
-                </el-form-item>
-                <el-form-item label="截止时间" class="assignment_form_input">
-                    <el-input v-model="assignmentDetailsData.expireDate" :disabled="true"></el-input>
-                </el-form-item>
-            </el-form>
-            <div>
+        <div class="new_oa" v-show="activeIndex==3">
+            <div class="new_oa_list clearfix">
+                <span class="new_oa_list_header">{{assignmentDetailsData.userName}}</span>
+                <div class="new_oa_list_msg">
+                    <span>{{assignmentDetailsData.userName}}</span>
+                    <span>{{assignmentDetailsData.createTime}}</span>
+                    <span>发送给</span>：
+                    <span>{{assignmentDetailsData.sendToPersonName}}</span>
+                </div>
+                <div class="new_oa_list_con">
+                    <p>任务标题</p>
+                    <span>{{assignmentDetailsData.title}}</span>
+                    <p>任务内容</p>
+                    <span>{{assignmentDetailsData.content}}</span>
+                    <p>开始时间</p>
+                    <span>{{assignmentDetailsData.startDate}}</span>
+                    <p>截止时间</p>
+                    <span>{{assignmentDetailsData.expireDate}}</span>
+                </div>
+                <el-button type="text" class="new_oa_list_con_btn">点赞0</el-button>
+                <el-button type="text" class="new_oa_list_con_btn" @click="replyInputToggle = 1">回复</el-button>
+                <el-input placeholder="请输入内容" class="new_oa_list_con_input" v-show="replyInputToggle == 1"></el-input>
+                <el-button type="text" class="new_oa_list_con_btn" v-show="replyInputToggle == 1">提交</el-button>
+                </div>
+                <reply-component></reply-component>
+                <div>
                 <el-button @click="activeIndex=1">返回</el-button>
             </div>
         </div>
@@ -92,7 +92,8 @@
 </template>
 
 <script>
-import Util from '../module/util.js';
+import Util from '../../script/util.js';
+import replyComponent from '../oa/replyComponent.vue';
 
 export default {
     name: 'oaAssignment',
@@ -102,7 +103,8 @@ export default {
             assignmentPage: 1,
             assignmentTotalPage: 0,
             activeIndex: 1,
-            assignmentForm: '',
+            replyInputToggle: 1,
+            assignmentForm: {},
             assignmentDetailsData: {},
             startTime: '',
             endTime: '',
@@ -132,7 +134,6 @@ export default {
             .then(function (res) { 
                 self.assignmentList = res.data.data.task;
                 self.assignmentTotalPage = res.data.data.page.totalCount;
-                console.log(self.assignmentList);
             })
             .catch(function (err) {
                 console.log(err);
@@ -165,6 +166,9 @@ export default {
                 console.log(err);
             });
         }
+    },
+    components: {
+        replyComponent
     }
 
 }
@@ -177,21 +181,10 @@ export default {
     .assignment_page{
         margin-top: 30px;
     }
-    .assignment_con_label{
-        line-height: 30px;
-    }
-    .assignment_con_label label{
-        height: 30px;
-        line-height: 30px;
-        width: 100px;
-        float: left;
-        text-align: right;
-    }
-    .assignment_con_label div{
-        text-align: left;
-        padding-left: 120px;
+    .assignment_btn{
+        padding-left: 150px;
     }
     .assignment_form_input{
-        width: 60%;
+        width: 30%;
     }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class='oaNotice'>
-        <el-menu theme="light" :default-active="activeIndex" class="notice_nav" mode="horizontal">
+        <el-menu theme="light" class="notice_nav" mode="horizontal">
             <el-menu-item index="1" @click="activeIndex=1" >公告列表</el-menu-item>
             <el-menu-item index="2" @click="activeIndex=2">新建公告</el-menu-item>
         </el-menu>
@@ -67,7 +67,7 @@
                     <el-input v-model="noticeForm.content" type="textarea" row="4" placeholder="请输入内容"></el-input>
                 </el-form-item>、
             </el-form>
-            <div>
+            <div class="notice_btn">
                 <el-button @click="activeIndex=1">取消</el-button>
                 <el-button type="primary">发送</el-button>
             </div>
@@ -86,7 +86,7 @@ export default {
             noticePage: 1,
             noticeTotalPage: 0,
             activeIndex: 1,
-            noticeForm: '',
+            noticeForm: {},
             noticeRec: {},
             noticeTreeData: [{
               id: 1,
@@ -198,5 +198,8 @@ export default {
 }
 .notice_con_pop_input{
     margin-bottom: 10px;
+}
+.notice_btn{
+    padding-left: 150px;
 }
 </style>
