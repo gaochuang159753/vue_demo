@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import index from 'components/index'  
 import xzgl from 'components/xzgl/xzglIndex'
 import zzrs from 'components/zzrs/zzrsIndex'  
-import qxgl from 'components/qxgl/qxglIndex'  
+import jur from 'components/jur/jurIndex'  
+
 import oa from 'components/oa/oaIndex'
 import oaReport from 'components/oa/oaReport'
 import oaExamine from 'components/oa/oaExamine'
@@ -38,9 +39,9 @@ export default new Router({
       component: zzrs
     },
     {
-      path: '/qxgl',
-      name: 'qxgl',
-      component: qxgl
+      path: '/jur',
+      name: 'jur',
+      component: jur
     },
     {
       path: '/oa',

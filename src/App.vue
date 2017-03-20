@@ -6,19 +6,33 @@
       </div>
     </div>
     <div class="app_left">
-      <div class="app_nav">
-        <router-link class="app_nav_li" to="/index" active-class="active">首页</router-link>
-        <router-link class="app_nav_li" to="/xzgl" active-class="active">薪资管理</router-link>
-        <router-link class="app_nav_li" to="/zzrs" active-class="active">组织人事</router-link>
-        <router-link class="app_nav_li" to="/qxgl" active-class="active">权限管理</router-link>
-        <router-link class="app_nav_li" to="/oa" active-class="active">工作台</router-link>
-      </div>
+      <el-menu>
+        <el-menu-item index="1"><router-link class="app_nav_li" to="/index" active-class="active">首页</router-link></el-menu-item>
+        <el-submenu index="2">
+          <template slot="title">薪资管理</template>
+            <el-menu-item index="2-1">工资管理</el-menu-item>
+            <el-menu-item index="2-2">发放工资条</el-menu-item>
+            <el-menu-item index="2-3">发放记录</el-menu-item>
+        </el-submenu>
+        <el-submenu index="3">
+          <template slot="title">公司人事</template>
+            <el-menu-item index="3-1">公司管理</el-menu-item>
+            <el-menu-item index="3-2">职位管理</el-menu-item>
+            <el-menu-item index="3-3">员工管理</el-menu-item>
+        </el-submenu>
+        <el-submenu index="4">
+          <template slot="title">权限管理</template>
+            <el-menu-item index="4-1">角色权限</el-menu-item>
+            <el-menu-item index="4-2">员工授权</el-menu-item>
+        </el-submenu>
+        <el-menu-item index="5"><router-link class="app_nav_li" to="/oa" active-class="active">工作台</router-link></el-menu-item>
+      </el-menu>
     </div>
   </div>
 </template>
 
 <script>
-import mainCss from 'src/style/mainCss.css'
+import main from 'src/style/main.css'
 
 export default {
   name: 'app'
@@ -26,17 +40,11 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: #2c3e50;
-  padding-top: 60px;
-}
+
 .app_left{
   float: left;
   margin-left: -100%;
+  width: 262px;
 }
 .app_right{
   float: left;
@@ -54,9 +62,8 @@ export default {
   background: #fff;
 }
 .app_nav_li{
-  height: 40px;
-  line-height: 40px;
-  padding-left: 20px;
+  height: 56px;
+  line-height: 56px;
   text-align: left;
   border-bottom: 1px solid #eee;
   cursor: pointer;
@@ -67,13 +74,6 @@ export default {
 .app_nav_li:last-child{
   border-bottom: none;
 }
-.app_nav_li:hover{
-  background: #2C3E50;
-  color: #fff;
-}
-.app_nav_li.active{
-  background: #2C3E50;
-  color: #fff;
-}
+
 
 </style>

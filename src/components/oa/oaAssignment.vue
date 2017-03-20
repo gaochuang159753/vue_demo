@@ -1,38 +1,38 @@
 <template>
     <div id='oaAssignment'>
-        <el-menu theme="light" class="assignment_nav" mode="horizontal">
+        <el-menu theme="light" class="gzt_common_nav" mode="horizontal">
             <el-menu-item index="1" @click="activeIndex=1">任务列表</el-menu-item>
             <el-menu-item index="2" @click="activeIndex=2">新建任务</el-menu-item>
         </el-menu>
-        <div class="assignment_con" v-show="activeIndex==1">
-            <el-table :data="assignmentList" style="width: 100%" align="center" class="assignment_table">
-                <el-table-column prop="createTime" label="时间" class="assignment_td"></el-table-column>
-                <el-table-column prop="title" label="任务标题" class="assignment_td"></el-table-column>
-                <el-table-column prop="content" label="任务内容" class="assignment_td"></el-table-column>
-                <el-table-column prop="userName" label="发起人" class="assignment_td"></el-table-column>
-                <el-table-column prop="userName" label="执行人" class="assignment_td"></el-table-column>
-                <el-table-column label="编辑" class="assignment_td">
+        <div class="gzt_common_con" v-show="activeIndex==1">
+            <el-table :data="assignmentList" style="width: 100%" align="center" class="gzt_common_table">
+                <el-table-column prop="createTime" label="时间" class="gzt_common_td"></el-table-column>
+                <el-table-column prop="title" label="任务标题" class="gzt_common_td"></el-table-column>
+                <el-table-column prop="content" label="任务内容" class="gzt_common_td"></el-table-column>
+                <el-table-column prop="userName" label="发起人" class="gzt_common_td"></el-table-column>
+                <el-table-column prop="userName" label="执行人" class="gzt_common_td"></el-table-column>
+                <el-table-column label="编辑" class="gzt_common_td">
                     <template scope="scope">
                         <el-button @click="assignmentDetails(scope.$index);activeIndex=3" type="text">查看</el-button>
                     </template>
                 </el-table-column>
             </el-table>
-            <div class="assignment_page">
+            <div class="gzt_common_page">
                 <el-pagination layout="prev, pager, next" :total="assignmentTotalPage" @current-change="changePage"></el-pagination>
             </div>
         </div>
-        <div class="assignment_con" v-show="activeIndex==2">
+        <div class="gzt_common_con" v-show="activeIndex==2">
             <el-form label-position="right" label-width="150px" :model="assignmentForm">
-                <el-form-item label="执行人" class="assignment_form_input">
+                <el-form-item label="执行人" class="gzt_common_form_input">
                     <el-button>获取执行人</el-button>
                 </el-form-item>
-                <el-form-item label="任务标题" class="assignment_form_input">
+                <el-form-item label="任务标题" class="gzt_common_form_input">
                     <el-input v-model="assignmentForm.signature" placeholder="请输入签名"></el-input>
                 </el-form-item>
-                <el-form-item label="任务内容" class="assignment_form_input">
+                <el-form-item label="任务内容" class="gzt_common_form_input">
                     <el-input v-model="assignmentForm.signature" placeholder="请输入签名"></el-input>
                 </el-form-item>
-                <el-form-item label="开始时间" class="assignment_form_input">
+                <el-form-item label="开始时间" class="gzt_common_form_input">
                     <div class="block assignment_form_input">
                         <el-date-picker
                         v-model="startTime"
@@ -42,7 +42,7 @@
                         </el-date-picker>
                     </div>
                 </el-form-item>
-                <el-form-item label="结束时间" class="assignment_form_input">
+                <el-form-item label="结束时间" class="gzt_common_form_input">
                     <div class="block assignment_form_input">
                         <el-date-picker
                         v-model="endTime"
@@ -53,7 +53,7 @@
                     </div>
                 </el-form-item>
             </el-form>
-            <div class="assignment_btn">
+            <div class="gzt_common_btn">
                 <el-button @click="activeIndex=1">返回</el-button>
                 <el-button type="primary">发送</el-button>
             </div>
@@ -177,16 +177,16 @@ export default {
 </script>
 
 <style scoped>
-    .assignment_nav{
+    .gzt_common_nav{
         margin: 30px 0;
     }
-    .assignment_page{
+    .gzt_common_page{
         margin-top: 30px;
     }
-    .assignment_btn{
+    .gzt_common_btn{
         padding-left: 150px;
     }
-    .assignment_form_input{
+    .gzt_common_form_input{
         width: 30%;
     }
 </style>

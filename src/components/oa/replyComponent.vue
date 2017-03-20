@@ -36,7 +36,7 @@ export default {
                 +'&param='+JSON.stringify({
                     "companyId": 61,
                     "pid": id,
-                    "sceneType": 2,
+                    "sceneType": 1,
                 })
             )
             .then(function (res) {
