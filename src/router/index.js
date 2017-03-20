@@ -4,6 +4,8 @@ import index from 'components/index'
 import xzgl from 'components/xzgl/xzglIndex'
 import zzrs from 'components/zzrs/zzrsIndex'  
 import jur from 'components/jur/jurIndex'  
+import jurRole from 'components/jur/jurRole'  
+
 
 import oa from 'components/oa/oaIndex'
 import oaReport from 'components/oa/oaReport'
@@ -42,6 +44,11 @@ export default new Router({
       path: '/jur',
       name: 'jur',
       component: jur
+    },
+    {
+      path: '/jur/role',
+      name: 'jurRole',
+      component: jurRole
     },
     {
       path: '/oa',

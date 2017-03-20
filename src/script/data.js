@@ -42,4 +42,25 @@ exports.accreditList = [
     }
 ]
 
+exports.roleListData = [
+    {
+        id: 1,
+        roleName: '管理员',
+        authority: ['所有权限','HRM'],
+    },{
+        id: 2,
+        roleName: '普通用户',
+        authority: ['HRM'],
+    },{
+        id: 3,
+        roleName: '客服',
+        authority: ['HRM','协同办公'],
+    },{
+        id: 4,
+        roleName: '仓储',
+        authority: ['所有权限','HRM'],
+    }
+
+]
+
 
