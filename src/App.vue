@@ -22,7 +22,7 @@
         </el-submenu>
         <el-submenu index="4">
           <template slot="title">权限管理</template>
-            <el-menu-item index="4-1">角色权限</el-menu-item>
+            <el-menu-item index="4-1"><router-link class="app_nav_li" to="/jur" active-class="active">角色管理</router-link></el-menu-item>
             <el-menu-item index="4-2">员工授权</el-menu-item>
         </el-submenu>
         <el-menu-item index="5"><router-link class="app_nav_li" to="/oa" active-class="active">工作台</router-link></el-menu-item>
