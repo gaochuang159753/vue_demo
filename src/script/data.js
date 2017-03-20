@@ -33,12 +33,12 @@ exports.accreditList = [
     }
     ,{
         id: 4,
-        name: '李大宝',
-        department: '爱聚测试你',
+        name: '李三',
+        department: '人事部',
         email: '72314551@qq.com',
         phone: 13002131234,
         state: 0,
-        allocation: '普通用户'
+        allocation: '库管'
     }
 ]
 
