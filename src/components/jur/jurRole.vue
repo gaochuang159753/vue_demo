@@ -4,65 +4,58 @@
             <el-button @click="" @click="jurPop=true" type="primary">添加角色</el-button>
         </div>
         <div class="jur_common_con">
-            <el-table :data="roleListData" highlight-current-row @current-change="jurClickTable" style="width: 100%" align="center" class="jur_common_table">
-                <el-table-column prop="id" label="序号" class="jur_common_td"></el-table-column>
-                <el-table-column prop="roleName" label="角色" class="jur_common_td"></el-table-column>
-                <el-table-column prop="authority" label="权限" class="jur_common_td"></el-table-column>
-                <el-table-column label="编辑" class="jur_common_td">
+            <el-table :data="roleListData" highlight-current-row style="width: 100%" align="center" class="common_table">
+                <el-table-column prop="id" label="序号"></el-table-column>
+                <el-table-column prop="roleName" label="角色"></el-table-column>
+                <el-table-column label="权限">
                     <template scope="scope">
-                        <el-button @click="" type="text">编辑</el-button>
-                        <el-button @click="" type="text">删除</el-button>
+                        <el-tag type="gray" v-for="tag in scope.row.authority" class="common_table_tag">{{tag}}</el-tag>
+                    </template>
+                </el-table-column>
+                <el-table-column label="编辑">
+                    <template scope="scope">
+                        <el-button @click="roleEdit(scope.$index)" type="text">编辑</el-button>
+                        <el-button @click="roleDel()" type="text">删除</el-button>
                     </template>
                 </el-table-column>
 
             </el-table>
             <div class="jur_common_page">
-                <el-pagination layout="prev, pager, next" :total="accreditTotalPage" @current-change=""></el-pagination>
+                <el-pagination layout="prev, pager, next" :total="roleTotalPage" @current-change=""></el-pagination>
             </div>
         </div>
         <el-dialog title="设置员工权限" v-model="jurPop" size="tiny">
             
             <div class="common_item clearfix">
-                <span class="common_item_label">角色</span>
+                <span class="common_item_label">角色名称</span>
                 <div class="common_item_com">
-                    <el-input placeholder="请输入角色名称"></el-input>
+                    <el-input placeholder="请输入角色名称" v-model="roleEditData.roleName"></el-input>
                 </div>
             </div>
             <div class="common_item clearfix">
-                <span class="common_item_label">选择权限</span>
+                <span class="common_item_label">角色权限</span>
                 <div class="common_item_com">
-                    <el-button @click="selectAccredit=1">协同办公</el-button>
-                    <el-button @click="selectAccredit=2">HRM</el-button>
-                </div>
-            </div>
-            <div class="common_item clearfix" v-show="selectAccredit==2">
-                <div class="common_item_com">
-                    <el-checkbox-group class="common_item_checkbox" @change="handleCheckAll" v-model="jurPopCheckData">
-                        <el-checkbox label="全选"></el-checkbox>
+                    <el-checkbox-group v-model="roleEditCheckData" class='common_item_checkbox'>
+                        <el-checkbox label="所有权限">全选</el-checkbox>
                     </el-checkbox-group>
-                    <el-checkbox-group class="common_item_checkbox" v-model="jurPopCheckData">
+                    <el-checkbox-group v-model="roleEditCheckData" class='common_item_checkbox'>
+                        <el-checkbox label="OA权限"></el-checkbox>
+                    </el-checkbox-group>
+                    <el-checkbox-group v-model="roleEditCheckData" class='common_item_checkbox'>
                         <el-checkbox label="薪资管理"></el-checkbox>
                         <el-checkbox label="发放工资单" disabled></el-checkbox>
                     </el-checkbox-group>
-                    <el-checkbox-group class="common_item_checkbox" v-model="jurPopCheckData">
+                    <el-checkbox-group v-model="roleEditCheckData" class='common_item_checkbox'>
                         <el-checkbox label="组织管理"></el-checkbox>
                         <el-checkbox label="部门管理" disabled></el-checkbox>
                         <el-checkbox label="职务管理" disabled></el-checkbox>
                         <el-checkbox label="员工管理" disabled></el-checkbox>
                     </el-checkbox-group>
-                    <el-checkbox-group class="common_item_checkbox" v-model="jurPopCheckData">
+                    <el-checkbox-group v-model="roleEditCheckData" class='common_item_checkbox'>
                         <el-checkbox label="权限管理"></el-checkbox>
                         <el-checkbox label="角色管理" disabled></el-checkbox>
                         <el-checkbox label="员工授权" disabled></el-checkbox>
                     </el-checkbox-group>
-                </div>
-            </div>
-            <div class="common_item clearfix" v-show="selectAccredit==1">
-                <div class="common_item_com">
-                    <el-checkbox-group class="common_item_checkbox" v-model="jurPopCheckData">
-                        <el-checkbox label="OA权限"></el-checkbox>
-                    </el-checkbox-group>
-                    
                 </div>
             </div>
             <span slot="footer" class="dialog-footer">
@@ -77,38 +70,36 @@
 import Util from '../../script/util.js'
 import CommonData from '../../script/data.js'
 
-const checkOptions = ['薪资管理','组织管理','权限管理','全选'];
-
-
 export default {
     name: 'jur',
     data() {
         return{
             roleListData: CommonData.roleListData,
-            accreditTotalPage: 1,
+            roleEditData: {},
+            roleEditCheckData: [],
+            roleTotalPage: 1,
             jurPop: false,
-            jurPopCheckbox: ['普通用户'],
-            jurClickTableId: '',
-            jurPopCheckData: [],
-            selectAccredit: 0,
         }
     },
     mounted: function (){
     }, 
     methods: {
-        jurClickTable: function (row){
-            this.jurClickTableId = row.id
+        roleDel: function (){
+            this.$message({
+                message: '删除成功',
+                type: 'success'
+            });
         },
-        handleCheckAll: function (){
-            this.jurPopCheckData=this.jurPopCheckData.length == 3?[]:checkOptions
+        roleEdit: function (index){
+            this.roleEditData = this.roleListData[index];
+            this.roleEditCheckData = this.roleListData[index].authority
+            this.jurPop = true;
         }
     }
 }
 </script>
 
 <style scoped>
-.jur_common_table{
-    margin: 30px 0;
-}
+
 
 </style>

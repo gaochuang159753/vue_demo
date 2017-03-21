@@ -60,6 +60,14 @@
     margin-bottom: 10px;
 }
 
+/*table common*/
+.common_table{
+    margin: 20px 0;
+}
+.common_table_tag{
+    margin-right: 10px;
+}
+
 
 /*oa common*/
 .new_oa{

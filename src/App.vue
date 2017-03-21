@@ -10,9 +10,9 @@
         <router-link class="app_nav_li el-menu-item el-menu-item-title" to="/index" active-class="active">首页</router-link>
         <el-submenu index="2">
           <template slot="title">薪资管理</template>
-            <el-menu-item index="2-1">工资管理</el-menu-item>
-            <el-menu-item index="2-2">发放工资条</el-menu-item>
-            <el-menu-item index="2-3">发放记录</el-menu-item>
+            <router-link class="app_nav_li el-menu-item" to="/pay/payManage" active-class="is-active">角色管理</router-link>
+            <router-link class="app_nav_li el-menu-item" to="" >发放工资条</router-link>
+            <router-link class="app_nav_li el-menu-item" to="" >发放记录</router-link>
         </el-submenu>
         <el-submenu index="3">
           <template slot="title">公司人事</template>
@@ -25,7 +25,7 @@
             <router-link class="app_nav_li el-menu-item" to="/jur/role" active-class="is-active">角色管理</router-link>
             <router-link class="app_nav_li el-menu-item" to="/jur/accredit" active-class="is-active">员工授权</router-link>
         </el-submenu>
-        <router-link class="app_nav_li el-menu-item el-menu-item-title" to="/oa" active-class="is-active">工作台</router-link>
+        <router-link class="app_nav_li el-menu-item el-menu-item-title" to="/oa/report" active-class="is-active">工作台</router-link>
       </el-menu>
     </div>
   </div>

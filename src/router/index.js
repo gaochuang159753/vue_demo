@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from 'components/index'  
-import xzgl from 'components/xzgl/xzglIndex'
+import payManage from 'components/pay/payManage'
+
 import zzrs from 'components/zzrs/zzrsIndex'  
 import jurAccredit from 'components/jur/jurAccredit'  
 import jurRole from 'components/jur/jurRole'  
@@ -31,9 +32,9 @@ export default new Router({
       component: index
     },
     {
-      path: '/xzgl',
-      name: 'xzgl',
-      component: xzgl
+      path: '/pay/payManage',
+      name: 'payManage',
+      component: payManage
     },
     {
       path: '/zzrs',

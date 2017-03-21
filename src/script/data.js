@@ -12,7 +12,7 @@ exports.accreditList = [
         email: '72314551@qq.com',
         phone: 13002131234,
         state: 0,
-        allocation: '管理员'
+        allocation: ['管理员']
     },{
         id: 2,
         name: '李大宝',
@@ -20,7 +20,7 @@ exports.accreditList = [
         email: '72314551@qq.com',
         phone: 13002131234,
         state: 1,
-        allocation: '普通用户'
+        allocation: ['普通用户','客服']
     }
     ,{
         id: 3,
@@ -29,7 +29,7 @@ exports.accreditList = [
         email: '72314551@qq.com',
         phone: 13002131234,
         state: 1,
-        allocation:'普通用户'
+        allocation: ['普通用户']
     }
     ,{
         id: 4,
@@ -38,7 +38,7 @@ exports.accreditList = [
         email: '72314551@qq.com',
         phone: 13002131234,
         state: 0,
-        allocation: '库管'
+        allocation: ['仓储']
     }
 ]
 
@@ -46,21 +46,104 @@ exports.roleListData = [
     {
         id: 1,
         roleName: '管理员',
-        authority: ['所有权限','HRM'],
+        authority: ['所有权限'],
     },{
         id: 2,
         roleName: '普通用户',
-        authority: ['HRM'],
+        authority: ['薪资管理'],
     },{
         id: 3,
         roleName: '客服',
-        authority: ['HRM','协同办公'],
+        authority: ['薪资管理','组织管理'],
     },{
         id: 4,
         roleName: '仓储',
-        authority: ['所有权限','HRM'],
+        authority: ['权限管理'],
     }
 
+]
+
+// 工资管理
+
+exports.payManageList = [
+    {
+        id: 1,
+        name: '维斯',
+        jobNum: 1,
+        department: '人事部',
+        phone: 13921234123,
+        email: '62131451@qq.com',
+        state: 0,
+        entryTime: '2016-12-12',
+        pay: 8000,
+    },{
+        id: 2,
+        name: '大和',
+        jobNum: 2,
+        department: '人事部',
+        phone: 13921234123,
+        email: '62131451@qq.com',
+        state: 0,
+        entryTime: '2016-12-12',
+        pay: 8000,
+    },{
+        id: 3,
+        name: '孟轲',
+        jobNum: 3,
+        department: '人事部',
+        phone: 13921234123,
+        email: '62131451@qq.com',
+        state: 1,
+        entryTime: '2016-12-12',
+        pay: 8000,
+    },{
+        id: 4,
+        name: '阿萨德',
+        jobNum: 4,
+        department: '人事部',
+        phone: 13921234123,
+        email: '62131451@qq.com',
+        state: 1,
+        entryTime: '2016-12-12',
+        pay: 8000,
+    },{
+        id: 5,
+        name: '李大宝',
+        jobNum: 5,
+        department: '人事部',
+        phone: 13921234123,
+        email: '62131451@qq.com',
+        state: 0,
+        entryTime: '2016-12-12',
+        pay: 8000,
+    }
+]
+exports.payManageEditData = [
+    {
+        time: '2017-12-02',
+        beforePay: '1500.00',
+        afterPay: '2000.00',
+        range: '150.00',
+        reason: '表现好',
+    }
+]
+exports.departmentData = [
+    {
+        value: '01',
+        label: '爱聚公司'
+    },{
+        value: '02',
+        label: '技术部'
+    },{
+        value: '03',
+        label: '人事部'
+    },{
+        value: '04',
+        label: '产品部'
+    },{
+        value: '05',
+        label: '财务部'
+    },
 ]
 
 
