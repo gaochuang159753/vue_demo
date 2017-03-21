@@ -9,6 +9,59 @@
 }
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 
+/*element样式修改*/
+#app .el-menu{
+    background: #343f51;
+}
+#app .el-menu-item{
+    padding: 0;
+}
+#app .el-menu-item.is-active{
+    background: #3d83e9;
+}
+#app .el-menu-item:hover,#app .el-submenu__title:hover{
+    background: #3d83e9;
+}
+#app .el-menu-item{
+    padding: 0 50px;
+}
+#app .el-menu-item-title{
+    padding: 0 20px;
+}
+#app .el-menu-item,#app .el-submenu__title{
+    height: 50px;
+    line-height: 50px;
+    color: #cfdcec;
+}
+#app .app_nav_li{
+    color: #cfdcec;
+    text-decoration: none;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+/*item common*/
+.common_item{
+    margin-bottom: 15px;
+}
+.common_item>span{
+    line-height: 36px;
+    float: left;
+    display: inline-block;
+    width: 60px;
+    text-align: right;
+    padding: 0 20px;
+}
+.common_item>div{
+    padding-left: 100px;
+}
+.common_item_checkbox{
+    margin-bottom: 10px;
+}
+
+
+/*oa common*/
 .new_oa{
     width: 30%;
 }

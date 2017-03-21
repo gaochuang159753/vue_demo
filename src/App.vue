@@ -7,7 +7,7 @@
     </div>
     <div class="app_left">
       <el-menu>
-        <el-menu-item index="1"><router-link class="app_nav_li" to="/index" active-class="active">首页</router-link></el-menu-item>
+        <router-link class="app_nav_li el-menu-item el-menu-item-title" to="/index" active-class="active">首页</router-link>
         <el-submenu index="2">
           <template slot="title">薪资管理</template>
             <el-menu-item index="2-1">工资管理</el-menu-item>
@@ -22,10 +22,10 @@
         </el-submenu>
         <el-submenu index="4">
           <template slot="title">权限管理</template>
-            <el-menu-item index="4-1"><router-link class="app_nav_li" to="/jur/role" active-class="active">角色管理</router-link></el-menu-item>
-            <el-menu-item index="4-2"><router-link class="app_nav_li" to="/jur" active-class="active">员工授权</router-link></el-menu-item>
+            <router-link class="app_nav_li el-menu-item" to="/jur/role" active-class="is-active">角色管理</router-link>
+            <router-link class="app_nav_li el-menu-item" to="/jur/accredit" active-class="is-active">员工授权</router-link>
         </el-submenu>
-        <el-menu-item index="5"><router-link class="app_nav_li" to="/oa" active-class="active">工作台</router-link></el-menu-item>
+        <router-link class="app_nav_li el-menu-item el-menu-item-title" to="/oa" active-class="is-active">工作台</router-link>
       </el-menu>
     </div>
   </div>
@@ -52,27 +52,6 @@ export default {
 }
 .app_right_box{
   margin: 0 20px 0 282px;
-}
-.app_nav{
-  width: 240px;
-  margin: 0 20px;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  overflow: hidden;
-  background: #fff;
-}
-.app_nav_li{
-  height: 56px;
-  line-height: 56px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-  display: block;
-  color: #666;
-  text-decoration: none;
-}
-.app_nav_li:last-child{
-  border-bottom: none;
 }
 
 

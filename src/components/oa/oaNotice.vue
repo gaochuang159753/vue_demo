@@ -76,6 +76,7 @@
 </template>
 
 <script>
+import Util from '../../script/util.js';
 export default {
     name: 'oaNotice', 
     data () {
@@ -128,7 +129,7 @@ export default {
         },
         ajax: function (num){
             var self = this;
-            this.$ajax.post('http://192.168.3.222:8080/hrm/api.do', 
+            this.$ajax.post(Util.url, 
                 'method=announcement/getAnnouncements'
                 +'&param='+JSON.stringify({
                     "userId": 61,

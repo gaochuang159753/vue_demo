@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import index from 'components/index'  
 import xzgl from 'components/xzgl/xzglIndex'
 import zzrs from 'components/zzrs/zzrsIndex'  
-import jur from 'components/jur/jurIndex'  
+import jurAccredit from 'components/jur/jurAccredit'  
 import jurRole from 'components/jur/jurRole'  
 
 
@@ -41,9 +41,9 @@ export default new Router({
       component: zzrs
     },
     {
-      path: '/jur',
-      name: 'jur',
-      component: jur
+      path: '/jur/Accredit',
+      name: 'jurAccredit',
+      component: jurAccredit
     },
     {
       path: '/jur/role',

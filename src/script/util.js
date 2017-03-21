@@ -4,7 +4,7 @@
  * @return {String} url
  */
 
-exports.url = 'http://192.168.3.222:8080/hrm/api.do';
+exports.url = 'http://192.168.3.110:8080/hrm/api.do';
 
 /**
  * 时间戳转换
