@@ -73,7 +73,7 @@ exports.payManageList = [
         department: '人事部',
         phone: 13921234123,
         email: '62131451@qq.com',
-        state: 0,
+        state: 2,
         entryTime: '2016-12-12',
         pay: 8000,
     },{
@@ -83,7 +83,7 @@ exports.payManageList = [
         department: '人事部',
         phone: 13921234123,
         email: '62131451@qq.com',
-        state: 0,
+        state: 2,
         entryTime: '2016-12-12',
         pay: 8000,
     },{
@@ -93,7 +93,7 @@ exports.payManageList = [
         department: '人事部',
         phone: 13921234123,
         email: '62131451@qq.com',
-        state: 1,
+        state: 3,
         entryTime: '2016-12-12',
         pay: 8000,
     },{
@@ -103,7 +103,7 @@ exports.payManageList = [
         department: '人事部',
         phone: 13921234123,
         email: '62131451@qq.com',
-        state: 1,
+        state: 3,
         entryTime: '2016-12-12',
         pay: 8000,
     },{
@@ -113,7 +113,7 @@ exports.payManageList = [
         department: '人事部',
         phone: 13921234123,
         email: '62131451@qq.com',
-        state: 0,
+        state: 2,
         entryTime: '2016-12-12',
         pay: 8000,
     }
@@ -144,6 +144,40 @@ exports.departmentData = [
         value: '05',
         label: '财务部'
     },
+]
+exports.departmentStateData = [
+    {
+        value: 1,
+        label: '全部'
+    },{
+        value: 2,
+        label: '正式'
+    },{
+        value: 3,
+        label: '试用'
+    },{
+        value: 4,
+        label: '兼职'
+    },{
+        value: 5,
+        label: '实习'
+    },
+]
+
+exports.payRecordList = [
+    {
+        id: 1,
+        name: '维斯',
+        jobNum: '001',
+        department: '技术部',
+        entryTime: '2016-12-11',
+        beforePay: '1500.00',
+        afterPay: '2000.00',
+        effectiveTime: '2017-05-01',
+        range: '150.00',
+        operator: '二郎',
+        operationTime: '2017-04-20'
+    }
 ]
 
 

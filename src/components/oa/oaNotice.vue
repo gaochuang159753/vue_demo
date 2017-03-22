@@ -167,7 +167,8 @@ export default {
             console.log(this.noticeRec)
         },
         handleClose(tag) {
-            this.noticeRec.splice(this.noticeRec.indexOf(tag), 1);
+            this.noticeRec.splice(this.noticeRec.indexOf(tag), 1
+             );
         },
         // 公告详情
         noticeDetails: function (index){
