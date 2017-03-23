@@ -32,7 +32,11 @@
 </template>
 
 <script>
-import main from 'src/style/main.css'
+
+import Style from 'src/style/main.css';// 公共样式文件
+import Util from 'script/util.js';//公共方法
+import Data from 'script/data.js';//公共数据,模拟后台请求
+
 
 export default {
   name: 'app'
