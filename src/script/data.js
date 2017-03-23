@@ -180,4 +180,120 @@ exports.payRecordList = [
     }
 ]
 
+// 工作汇报列表
+exports.reportList = [
+    {
+        id: 1,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '大和',
+        recipientName: '卢克',
+        content: {
+            todayCon: '今天我做了啥',
+            tomorrowCon: '明天我做了啥',
+            feelCon: '我有啥体会',
+        }
+    },{
+        id: 2,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '大和',
+        recipientName: '二郎',
+        content: {
+            todayCon: '今天我做了啥',
+            tomorrowCon: '明天我做了啥',
+            feelCon: '我有啥体会',
+        }
+    },{
+        id: 3,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '卢克',
+        recipientName: '二郎',
+        content: {
+            todayCon: '今天我做了啥',
+            tomorrowCon: '明天我做了啥',
+            feelCon: '我有啥体会',
+        }
+    },{
+        id: 4,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '卢克',
+        recipientName: '二郎',
+        content: {
+            todayCon: '今天我做了啥',
+            tomorrowCon: '明天我做了啥',
+            feelCon: '我有啥体会',
+        }
+    }
+]
+// 我发出的汇报
+exports.reportMyList = [
+    {
+        id: 1,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '大和',
+        recipientName: '卢克',
+        content: {
+            todayCon: '今天我做了啥',
+            tomorrowCon: '明天我做了啥',
+            feelCon: '我有啥体会',
+        }
+    },{
+        id: 2,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '大和',
+        recipientName: '二郎',
+        content: {
+            todayCon: '今天我做了啥',
+            tomorrowCon: '明天我做了啥',
+            feelCon: '我有啥体会',
+        }
+    }
+]
+// 人员结构
+exports.orgTree = [
+    {
+        id:1,
+        label: '爱聚科技公司',
+        children: [
+            {
+                id: 11,
+                label: '人事部',
+                children: [
+                    {
+                        id: 101,
+                        label: '优姬',
+                    },{
+                        id: 102,
+                        label: '沉香',
+                    },{
+                        id: 103,
+                        label: '鸣人',
+                    }
+                ]
+            },{
+                id: 12,
+                label: '技术部',
+                children: [
+                    {
+                        id: 201,
+                        label: '大和',
+                    },{
+                        id: 202,
+                        label: '奇牙',
+                    },{
+                        id: 203,
+                        label: '菲亚',
+                    }
+                ]
+            }
+        ]
+    }
+]
+exports.orgTreeProps = {
+     children: 'children',
+     label: 'label'
+}
+
+
+
+
 
