@@ -35,9 +35,6 @@
                   :data="noticeTreeData"
                   show-checkbox
                   node-key="id"
-                  :default-expanded-keys="[1]"
-                  :default-checked-keys="[5]"
-                  :filter-node-method="filterNode"
                   :props="defaultProps"
                   ref="tree">
                 </el-tree>

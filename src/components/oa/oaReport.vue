@@ -3,7 +3,7 @@
         <el-menu theme="light" class="gzt_common_nav" mode="horizontal" default-active="1">
             <el-menu-item index="1" @click="activeIndex=1;reportListAjax(1);">收到的汇报</el-menu-item>
             <el-menu-item index="4" @click="activeIndex=1;reportListAjax(2);">发出的汇报</el-menu-item>
-            <el-menu-item index="2" @click="activeIndex=2">新建汇报</el-menu-item>
+            <el-menu-item index="2" @click="activeIndex=2;">新建汇报</el-menu-item>
         </el-menu>
         <div class="gzt_common_con" v-show="activeIndex==1">
             <el-table :data="reportList" style="width: 100%" align="center" class="gzt_common_table">
@@ -41,6 +41,7 @@
                             :data="orgTree"
                             show-checkbox
                             node-key="id"
+                            :default-expand-all="true"
                             :props="orgTreeProps">
                         </el-tree>
                     </el-popover>
@@ -121,14 +122,16 @@ export default {
                 }
             ],// 类型
             reportValue: '',
-            orgTree: Util.orgTree,
-            orgTreeProps: Util.orgTreeProps,
+            orgTree: Data.orgTree,
+            orgTreeProps: Data.orgTreeProps,
             
         }
     },
     mounted: function (){
+
     }, 
     methods: {
+
         // ajax: function (num,type){
         //     var self = this;
         //     this.$ajax.post(Util.url, 
