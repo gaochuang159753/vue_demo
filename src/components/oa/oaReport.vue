@@ -63,6 +63,9 @@
                 </el-card>  
                 </li>
             </ul>
+            <div class="oa_common_page">
+                <el-pagination layout="prev, pager, next" :total="reportTotalPage"></el-pagination>
+            </div>
         </div>
         <div class="oa_common_con" v-show="activeIndex==2">
             <el-form label-position="right" label-width="150px" :model="reportDetailsData">
@@ -93,13 +96,13 @@
                     
                 </el-form-item>
                 <el-form-item label="今日工作内容" class="oa_common_form_input">
-                    <el-input v-model="reportDetailsData.content.todayCon" placeholder="请输入签名"></el-input>
+                    <el-input v-model="reportDetailsData.content.todayCon" placeholder=""></el-input>
                 </el-form-item>
                 <el-form-item label="明日工作内容" class="oa_common_form_input">
-                    <el-input v-model="reportDetailsData.content.tomorrowCon" placeholder="请输入签名"></el-input>
+                    <el-input v-model="reportDetailsData.content.tomorrowCon" placeholder=""></el-input>
                 </el-form-item>
                 <el-form-item label="工作心得体会" class="oa_common_form_input">
-                    <el-input v-model="reportDetailsData.content.feelCon" placeholder="请输入签名"></el-input>
+                    <el-input v-model="reportDetailsData.content.feelCon" placeholder=""></el-input>
                 </el-form-item>
             </el-form>
             <div class="oa_common_btn">
@@ -179,19 +182,4 @@ export default {
 </script>
 
 <style scoped>
-    .oa_common_nav{
-        margin: 30px 0;
-    }
-    .oa_common_page{
-        margin-top: 30px;
-    }
-    .oa_common_btn{
-        padding-left: 150px;
-    }
-    .oa_common_form_input{
-        width: 30%;
-    }
-    .oa_common_table_item .el-form-item{
-        width: 100%;
-    }
 </style>
