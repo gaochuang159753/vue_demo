@@ -8,19 +8,19 @@
         <div class="oa_common" v-show="activeIndex==1">
             <ul>
                 <li v-for="list in reportList">
-                <el-card class="box-card"> 
-                    <div class="oa_common_msg">
+                <el-card class="box-card oa_common_card"> 
+                    <div class="oa_common_msg" @click="detailToggle(list.id)">
                         <span class="oa_common_msg_header">{{list.senderName}}</span>
                         <div class="oa_common_msg_con">
-                            <span class="oa_common_msg_con_span">{{list.senderName}}</span>
+                            <span class="oa_common_msg_span">{{list.senderName}}</span>
                             <el-tag type="primary" v-show="list.reportType==1">日报</el-tag>
                             <el-tag type="success" v-show="list.reportType==2">周报</el-tag>
                             <el-tag type="danger" v-show="list.reportType==3">月报</el-tag>
                             <br/>
-                            <span class="oa_common_msg_con_span">{{list.createTime}}</span>发送给 ：<span class="oa_common_msg_con_span">{{list.recipientName}}</span>
+                            <span class="oa_common_msg_span oa_common_time">{{list.createTime}}</span>发送给：<span class="oa_common_msg_con_span">{{list.recipientName}}</span>
                         </div>
                     </div>
-                    <div class="oa_common_con" v-show="detailListToggle==list.id">
+                    <div class="oa_common_con" v-show="detailToggleData==list.id">
                         <div class="oa_common_item">
                             <p class="oa_common_item_title">今天工作内容</p>
                             <p class="oa_common_item_con">{{list.content.todayCon}}</p>
@@ -36,21 +36,26 @@
                     </div>
                     <div class="oa_common_reply clearfix">
                         <div class="oa_common_reply_main">
-                            <el-button type="text">点赞</el-button>
-                            <el-button type="text" v-show="replyListToggle==0" @click="replyListToggle=list.id">回复</el-button>
-                            <el-button type="text" v-show="replyListToggle==list.id" @click="replyListToggle=0">回复</el-button>
-                            <el-button type="text" v-show="detailListToggle==0" @click="detailListToggle=list.id">展开</el-button>
-                            <el-button type="text" v-show="detailListToggle==list.id" @click="detailListToggle=0">收起</el-button>
+                                <el-button type="text"v-show="replyListToggle==0" @click="replyListToggle=list.id">回复</el-button>
+                                <el-button type="text" v-show="replyListToggle==list.id" @click="replyListToggle=0">回复</el-button>
+                                <el-button type="text">点赞</el-button>
+                                
+                            </el-badge>
                         </div>
                         <div class="oa_common_reply_list" v-show="replyListToggle==list.id">
-                            <el-input></el-input>
-                            <div class="oa_common_msg">
-                                <span></span>
+                            <el-input placeholder="添加回复"></el-input>
+                            <div class="oa_common_msg oa_common_msg_reply" v-for="replyList in replyList">
+                                <span class="oa_common_msg_header">{{replyList.senderName}}</span>
                                 <div class="oa_common_msg_con">
-                                    <span></span>
-                                    <span>回复</span>:
-                                    <span></span>
-                                    <span></span>
+                                    <span class="oa_common_msg_span">{{replyList.senderName}}</span>
+                                    <span class="oa_common_msg_span" v-show="replyList.recipientName!=''">回复 {{replyList.recipientName}}</span>：
+                                    <span class="oa_common_msg_span">{{replyList.content}}</span><br/>
+                                    <span class="oa_common_msg_span oa_common_time">{{replyList.createTime}}</span>
+                                    <el-button type="text">撤回</el-button>
+                                    <el-button type="text" v-show="replyInputToggle==0" @click="replyInputToggle=replyList.id">回复</el-button>
+                                    <el-button type="text" v-show="replyInputToggle==replyList.id" @click="replyInputToggle=0">回复</el-button>
+                                    <el-button type="text">点赞</el-button>
+                                    <el-input v-show="replyInputToggle==replyList.id" placeholder="添加回复"></el-input>
                                 </div>
                             </div>
                         </div>
@@ -136,8 +141,10 @@ export default {
             reportValue: '',
             orgTree: Data.orgTree,
             orgTreeProps: Data.orgTreeProps,
-            detailListToggle: 0,
+            detailToggleData: 0,
             replyListToggle: 0,
+            replyInputToggle: 0,
+            replyList: Data.replyList,
             
         }
     },
@@ -145,7 +152,14 @@ export default {
 
     }, 
     methods: {
-        reportListAjax:  function(type){
+        detailToggle: function (id){
+            if(this.detailToggleData == 0){
+                this.detailToggleData = id;
+            }else{
+                this.detailToggleData = 0;
+            }
+        },
+        reportListAjax: function(type){
             if(type==1){
                 this.reportList = Data.reportList;
             }else{

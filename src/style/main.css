@@ -82,6 +82,16 @@ a:hover{color:#0066cc;text-decoration:underline}
 
 
 /*oa common*/
+.oa_common_card{
+    margin-bottom: 20px;
+}
+.oa_common_card .el-card__body{
+    padding: 0;
+}
+.oa_common_msg{
+    cursor: pointer;
+    padding: 10px;
+}
 .oa_common_msg_header{
     display: inline-block;
     height: 50px;
@@ -93,28 +103,29 @@ a:hover{color:#0066cc;text-decoration:underline}
     float: left;
     margin: 5px;
 }
-.oa_common_msg,.oa_common_con{
-    padding: 10px;
-}
 .oa_common_msg_con{
     padding-left: 60px;
 }
-.oa_common_msg_con_span{
+.oa_common_msg_con .el-button{
+    float: right;
+    margin-left: 10px;
+}
+.oa_common_msg_span{
     line-height: 30px;
-    margin-right: 10px;
 }
-.box-card{
-    margin-bottom: 20px;
+.oa_common_msg_reply{
+    padding: 10px 0;
 }
-.box-card .el-card__body{
-    padding: 0;
+.oa_common_con{
+    padding: 0 20px;
 }
 .oa_common_reply{
     background: #f5f7fd;
     padding: 0 20px;
 }
-.oa_common_reply_main{
+.oa_common_reply_main .el-button{
     float: right;
+    margin-left: 10px;
 }
 .oa_common_item_title{
     color: #666;
@@ -122,4 +133,8 @@ a:hover{color:#0066cc;text-decoration:underline}
 .oa_common_item_con{
     padding: 20px 0;
 }
+.oa_common_time{
+    color: #666;
+}
+
 

@@ -179,7 +179,33 @@ exports.payRecordList = [
         operationTime: '2017-04-20'
     }
 ]
-
+exports.replyList = [
+    {
+        id: 1,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '大和',
+        recipientName: '',
+        content: '加油！',
+        praiseNum: 5,
+        replyNum: 4,
+    },{
+        id: 2,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '卢克',
+        recipientName: '大和',
+        content: '努力！',
+        praiseNum: 5,
+        replyNum: 4,
+    },{
+        id: 3,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '大和',
+        recipientName: '卢克',
+        content: '加油！',
+        praiseNum: 5,
+        replyNum: 4,
+    }
+]
 // 工作汇报列表
 exports.reportList = [
     {
@@ -192,7 +218,9 @@ exports.reportList = [
             todayCon: '1.工作台测试bug修复',
             tomorrowCon: '1.工作台测试',
             feelCon: '加油',
-        }
+        },
+        praiseNum: 5,
+        replyNum: 4,
     },{
         id: 2,
         reportType: 1,
@@ -232,24 +260,30 @@ exports.reportList = [
 exports.reportMyList = [
     {
         id: 1,
+        reportType: 3,
         createTime: '2017-05-03 14:00:00',
-        senderName: '大和',
-        recipientName: '卢克',
-        content: {
-            todayCon: '1.工作台测试bug修复',
-            tomorrowCon: '1.工作台测试',
-            feelCon: '加油',
-        }
-    },{
-        id: 2,
-        createTime: '2017-05-03 14:00:00',
-        senderName: '大和',
+        senderName: '卢克',
         recipientName: '二郎',
         content: {
             todayCon: '1.工作台测试bug修复',
             tomorrowCon: '1.工作台测试',
             feelCon: '加油',
-        }
+        },
+        praiseNum: 5,
+        replyNum: 4,
+    },{
+        id: 2,
+        reportType: 1,
+        createTime: '2017-05-03 14:00:00',
+        senderName: '卢克',
+        recipientName: '二郎',
+        content: {
+            todayCon: '1.工作台测试bug修复',
+            tomorrowCon: '1.工作台测试',
+            feelCon: '加油',
+        },
+        praiseNum: 5,
+        replyNum: 4,
     }
 ]
 // 人员结构
