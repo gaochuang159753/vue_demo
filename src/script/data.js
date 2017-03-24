@@ -184,43 +184,47 @@ exports.payRecordList = [
 exports.reportList = [
     {
         id: 1,
+        reportType: 1,
         createTime: '2017-05-03 14:00:00',
         senderName: '大和',
         recipientName: '卢克',
         content: {
-            todayCon: '今天我做了啥',
-            tomorrowCon: '明天我做了啥',
-            feelCon: '我有啥体会',
+            todayCon: '1.工作台测试bug修复',
+            tomorrowCon: '1.工作台测试',
+            feelCon: '加油',
         }
     },{
         id: 2,
+        reportType: 1,
         createTime: '2017-05-03 14:00:00',
         senderName: '大和',
         recipientName: '二郎',
         content: {
-            todayCon: '今天我做了啥',
-            tomorrowCon: '明天我做了啥',
-            feelCon: '我有啥体会',
+            todayCon: '1.工作台测试bug修复',
+            tomorrowCon: '1.工作台测试',
+            feelCon: '加油',
         }
     },{
         id: 3,
+        reportType: 2,
         createTime: '2017-05-03 14:00:00',
         senderName: '卢克',
         recipientName: '二郎',
         content: {
-            todayCon: '今天我做了啥',
-            tomorrowCon: '明天我做了啥',
-            feelCon: '我有啥体会',
+            todayCon: '1.工作台测试bug修复',
+            tomorrowCon: '1.工作台测试',
+            feelCon: '加油',
         }
     },{
         id: 4,
+        reportType: 3,
         createTime: '2017-05-03 14:00:00',
         senderName: '卢克',
         recipientName: '二郎',
         content: {
-            todayCon: '今天我做了啥',
-            tomorrowCon: '明天我做了啥',
-            feelCon: '我有啥体会',
+            todayCon: '1.工作台测试bug修复',
+            tomorrowCon: '1.工作台测试',
+            feelCon: '加油',
         }
     }
 ]
@@ -232,9 +236,9 @@ exports.reportMyList = [
         senderName: '大和',
         recipientName: '卢克',
         content: {
-            todayCon: '今天我做了啥',
-            tomorrowCon: '明天我做了啥',
-            feelCon: '我有啥体会',
+            todayCon: '1.工作台测试bug修复',
+            tomorrowCon: '1.工作台测试',
+            feelCon: '加油',
         }
     },{
         id: 2,
@@ -242,9 +246,9 @@ exports.reportMyList = [
         senderName: '大和',
         recipientName: '二郎',
         content: {
-            todayCon: '今天我做了啥',
-            tomorrowCon: '明天我做了啥',
-            feelCon: '我有啥体会',
+            todayCon: '1.工作台测试bug修复',
+            tomorrowCon: '1.工作台测试',
+            feelCon: '加油',
         }
     }
 ]

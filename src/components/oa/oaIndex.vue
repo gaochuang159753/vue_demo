@@ -11,6 +11,12 @@
                 <router-view keep-alive></router-view>
             </div>
         </div>
+        <div class="oa_right">
+            <div class="oa_right_header"><span></span></div>
+            <ul>
+                <li></li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -27,6 +33,9 @@ export default {
 </script>
 
 <style scoped>
+.oa_left{
+    padding-right: 240px;
+}
 .oa_left_nav_li{
     display: inline-block;
     width: 100%;
@@ -38,7 +47,6 @@ export default {
     border: 1px solid #eee;
 }
 .oa_left_nav_li.active{
-    
     border-color: #2C3E50
 }
 </style>

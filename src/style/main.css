@@ -7,6 +7,18 @@
   font-size: 14px;
   padding-top: 60px;
 }
+/*公共初始化 可删除*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td{margin:0; padding:0;}
+h1, h2, h3, h4, h5, h6{font-size:100%;}
+body{ font:12px,arial,\5b8b\4f53;}
+em{font-style:normal}
+li{list-style:none}
+img{border:0;vertical-align:middle}
+select,input{vertical-align:middle;}
+button, input, select, textarea{font-size:100%;}
+table{border-collapse:collapse; border-spacing:0;}
+a{color:#0099ff;text-decoration:none}
+a:hover{color:#0066cc;text-decoration:underline}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 
 /*element样式修改*/
@@ -70,18 +82,7 @@
 
 
 /*oa common*/
-.new_oa{
-    width: 30%;
-}
-.new_oa_list{
-    border: 1px solid #bfcbd9;
-    padding: 5px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.new_oa_list_header{
+.oa_common_msg_header{
     display: inline-block;
     height: 50px;
     width: 50px;
@@ -90,19 +91,35 @@
     text-align: center;
     color: #fff;
     float: left;
-    margin-right: 5px;
+    margin: 5px;
 }
-
-.new_oa_list_msg{
-    padding-left: 50px;
+.oa_common_msg,.oa_common_con{
+    padding: 10px;
 }
-.new_oa_list_msg span{
-    line-height: 50px;
+.oa_common_msg_con{
+    padding-left: 60px;
 }
-.new_oa_list .new_oa_list_con_btn{
-    float: right;
-    padding: 0 10px;
+.oa_common_msg_con_span{
     line-height: 30px;
-    cursor: pointer;
+    margin-right: 10px;
+}
+.box-card{
+    margin-bottom: 20px;
+}
+.box-card .el-card__body{
+    padding: 0;
+}
+.oa_common_reply{
+    background: #f5f7fd;
+    padding: 0 20px;
+}
+.oa_common_reply_main{
+    float: right;
+}
+.oa_common_item_title{
+    color: #666;
+}
+.oa_common_item_con{
+    padding: 20px 0;
 }
 
