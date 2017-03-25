@@ -277,6 +277,7 @@ exports.reportMyList = [
         createTime: '2017-05-03 14:00:00',
         senderName: '卢克',
         recipientName: '二郎',
+        
         content: {
             todayCon: '1.工作台测试bug修复',
             tomorrowCon: '1.工作台测试',

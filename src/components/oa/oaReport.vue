@@ -55,6 +55,9 @@
                                     <el-button type="text" v-show="replyInputToggle==0" @click="replyInputToggle=replyList.id">回复</el-button>
                                     <el-button type="text" v-show="replyInputToggle==replyList.id" @click="replyInputToggle=0">回复</el-button>
                                     <el-button type="text">点赞</el-button>
+                                    <el-button type="text">点赞</el-button>
+                                    <el-button type="text">点赞</el-button>
+                                    <el-button type="text">点赞</el-button>
                                     <el-input v-show="replyInputToggle==replyList.id" placeholder="添加回复"></el-input>
                                 </div>
                             </div>
