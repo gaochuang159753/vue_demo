@@ -18,9 +18,7 @@
                         <el-button @click="noticeDelete(scope.$index);" type="text">删除</el-button>
                         <el-button @click="noticeDelete(scope.$index);" type="text">删除</el-button>
                         <el-button @click="noticeDelete(scope.$index);" type="text">删除</el-button>
-                        <el-button @click="noticeDelete(scope.$index);" type="text">删除</el-button>
-                        <el-button @click="noticeDelete(scope.$index);" type="text">删除</el-button>
-                        <el-button @click="noticeDelete(scope.$index);" type="text">删除</el-button>
+                        <el-button @click="noticeDelete(scope.$index);" type="text">删除</el-button>x
                     </template>
                 </el-table-column>
             </el-table>
