@@ -46,6 +46,8 @@ import Util from 'script/util.js';//公共方法
 import Data from 'script/data.js';//公共数据,模拟后台请求
 
 
+
+
 export default {
   name: 'app'
 }
