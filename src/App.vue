@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <div class="app_nav">
+      <div class="app_nav_logo"></div>
+      <div class="app_nav_access">
+      <a href="">协同办公</a>
+      <a href="">公司管理</a>
+      </div>
+      <div class="app_nav_msg">个人设置</div>
+    </div>
     <div class="app_right">
       <div class="app_right_box">
         <router-view keep-alive></router-view>
@@ -38,24 +46,30 @@ import Util from 'script/util.js';//公共方法
 import Data from 'script/data.js';//公共数据,模拟后台请求
 
 
+
+
 export default {
   name: 'app'
 }
 </script>
 
 <style>
-
+.app_nav{height: 76px;line-height: 76px;background-color: #3E78C1;}
+.app_nav_logo{height: 76px;width: 270px;background: url(images/logo.png);float: left;}
+.app_nav_access a{display: inline-block;float: left;line-height: 76px;text-align: center;color: #fff;padding: 0 20px;}
+.app_nav_access a:hover{color: #fff;background: #5f8ec9;}
+.app_nav_msg{float: right;color: #fff;padding: 0 20px;}
 .app_left{
   float: left;
   margin-left: -100%;
-  width: 262px;
+  width: 270px;
 }
 .app_right{
   float: left;
   width: 100%;
 }
 .app_right_box{
-  margin: 0 20px 0 282px;
+  margin: 0 20px 0 290px;
 }
 
 
