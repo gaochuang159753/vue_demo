@@ -2,6 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from 'components/index'  
 import payManage from 'components/pay/payManage'
+import payRecord from 'components/pay/payRecord'
+import payWages from 'components/pay/payWages'
+
+
 
 import zzrs from 'components/zzrs/zzrsIndex'  
 import jurAccredit from 'components/jur/jurAccredit'  
@@ -35,6 +39,16 @@ export default new Router({
       path: '/pay/payManage',
       name: 'payManage',
       component: payManage
+    },
+    {
+      path: '/pay/payRecord',
+      name: 'payRecord',
+      component: payRecord
+    },
+    {
+      path: '/pay/payWages',
+      name: 'payWages',
+      component: payWages
     },
     {
       path: '/zzrs',

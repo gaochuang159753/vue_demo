@@ -5,7 +5,6 @@
   text-align: left;
   color: #2c3e50;
   font-size: 14px;
-  padding-top: 60px;
 }
 /*公共初始化 可删除*/
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td{margin:0; padding:0;}
@@ -18,21 +17,24 @@ select,input{vertical-align:middle;}
 button, input, select, textarea{font-size:100%;}
 table{border-collapse:collapse; border-spacing:0;}
 a{color:#0099ff;text-decoration:none}
-a:hover{color:#0066cc;text-decoration:underline}
+a:hover{color:#0082d5;}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+html,body{height: 100%;}
 
 /*element样式修改*/
 #app .el-menu{
-    background: #343f51;
+    background: #fff;
 }
 #app .el-menu-item{
     padding: 0;
 }
 #app .el-menu-item.is-active{
-    background: #3d83e9;
+    background: #eceff4;
+    color:#0082d5;
 }
 #app .el-menu-item:hover,#app .el-submenu__title:hover{
-    background: #3d83e9;
+    background: #eceff4;
+    color:#0082d5;
 }
 #app .el-menu-item{
     padding: 0 50px;
@@ -43,10 +45,10 @@ a:hover{color:#0066cc;text-decoration:underline}
 #app .el-menu-item,#app .el-submenu__title{
     height: 50px;
     line-height: 50px;
-    color: #cfdcec;
+    color: #54657e;
 }
 #app .app_nav_li{
-    color: #cfdcec;
+    color: #54657e;
     text-decoration: none;
     display: inline-block;
     height: 100%;
