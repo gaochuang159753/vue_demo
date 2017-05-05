@@ -1,31 +1,29 @@
 <template>
     <div id='payRecord'>
-        <div class="Rrecord_nav">
-           
-        </div>
-        <div class="record_con">
+        <div>
             <el-tabs v-model="activeName">
                 <el-tab-pane label="发放记录" name="one">
-                    <el-table :data="payrollList" style="width: 100%" align="center" class="notice_table">
-                        <el-table-column prop="salaryName" label="名称" class="notice_td"></el-table-column>
-                        <el-table-column prop="userName" label="发送人" class="notice_td"></el-table-column>
-                        <el-table-column prop="sendTime" label="发送时间" class="notice_td"></el-table-column>
-                        <el-table-column label="编辑" class="notice_td">
-                            <template scope="scope">
-                                <el-button @click="payrollDetail(scope.row.id);" type="text">明细</el-button>
-                                <el-button @click="" type="text">撤销</el-button>
-                            </template>
-                        </el-table-column>
-                    </el-table>
+                    <div class="hrm_module">
+                        <div class="hrm_module_con">
+                            <el-table :data="payrollList" style="width: 100%" align="center" class="">
+                                <el-table-column prop="salaryName" label="名称" class="notice_td"></el-table-column>
+                                <el-table-column prop="userName" label="发送人" class="notice_td"></el-table-column>
+                                <el-table-column prop="sendTime" label="发送时间" class="notice_td"></el-table-column>
+                                <el-table-column label="编辑" class="notice_td">
+                                    <template scope="scope">
+                                        <el-button @click="payrollDetail(scope.row.id);" type="text">明细</el-button>
+                                        <el-button @click="" type="text">撤销</el-button>
+                                    </template>
+                                </el-table-column>
+                            </el-table>
+                        </div>
+                    </div>
                 </el-tab-pane>
-            </el-tabs> 
+            </el-tabs>
         </div>
-        <el-dialog
-        title="工资单明细"
-        v-model="dialogVisible"
-        size="large">
+        <el-dialog title="工资单明细" v-model="dialogVisible" size="large">
             <span class="">
-                <el-table :data="payrollDetailList" style="width: 100%" align="center" class="notice_table">
+                <el-table :data="payrollDetailList" style="width: 100%" align="center" class="">
                     <el-table-column prop="staffNo" label="工号" class="notice_td"></el-table-column>
                     <el-table-column prop="name" label="名字" class="notice_td"></el-table-column>
                     <el-table-column prop="email" label="邮箱" class="notice_td"></el-table-column>
@@ -51,77 +49,87 @@
             </span>
         </el-dialog>
     </div>
-    
+
 </template>
 
 <script>
-import Util from '../../script/util.js'
+    import Util from '../../script/util.js'
 
 
-export default {
-    name: 'payManage',
-    data (){
-        return{
-            activeName: 'one', // 导航切换
-            url: "spwSalaryPay/getSalaryBatchList", // 工资单列表url
-            payrollList: [], // 工资单列表数据
-            dialogVisible: false, // 弹框
-            payrollDetailList: [], // 列表数据
-        }
-    },
-    mounted: function (){
-        this.ajax(this.url)
-    }, 
-    methods:{
-        ajax: function (url){
-            var self = this;
-            this.$ajax.post(Util.url, 
-                'method=spwSalaryPay/getSalaryBatchList'
-                +'&param='+JSON.stringify({
-                    "userId": 61,
-                    "companyId": 61,
-                    "pageNum": 1,
-                    "pageSize": 10,
-                })
-            )
-            .then(function (res) { 
-                self.payrollList = res.data.data.result;
-                self.payrollListPage = res.data.data.page;
-                console.log(res.data.data.result)
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
+    export default {
+        name: 'payManage',
+        data() {
+            return {
+                activeName: 'one', // 导航切换
+                url: "spwSalaryPay/getSalaryBatchList", // 工资单列表url
+                payrollList: [], // 工资单列表数据
+                dialogVisible: false, // 弹框
+                payrollDetailList: [], // 列表数据
+            }
         },
-        // 明细
-        payrollDetail: function (pid){
-            this.dialogVisible = true;
-            console.log(pid)
-            var self = this;
-            this.$ajax.post(Util.url, 
-                'method=spwSalaryPay/getSalaryPayList'
-                +'&param='+JSON.stringify({
-                    "userId": 61,
-                    "companyId": 61,
-                    "pid": pid,
-                    "pageNum": 1,
-                    "pageSize": 10,
-                })
-            )
-            .then(function (res) { 
-                self.payrollDetailList = res.data.data.result;
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
+        mounted: function () {
+            this.ajax(this.url)
+        },
+        methods: {
+            ajax: function (url) {
+                var self = this;
+                this.$ajax.post(Util.url,
+                    'method=spwSalaryPay/getSalaryBatchList'
+                    + '&param=' + JSON.stringify({
+                        "userId": 61,
+                        "companyId": 61,
+                        "pageNum": 1,
+                        "pageSize": 10,
+                    })
+                )
+                    .then(function (res) {
+                        self.payrollList = res.data.data.result;
+                        self.payrollListPage = res.data.data.page;
+                        console.log(res.data.data.result)
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            },
+            // 明细
+            payrollDetail: function (pid) {
+                this.dialogVisible = true;
+                console.log(pid)
+                var self = this;
+                this.$ajax.post(Util.url,
+                    'method=spwSalaryPay/getSalaryPayList'
+                    + '&param=' + JSON.stringify({
+                        "userId": 61,
+                        "companyId": 61,
+                        "pid": pid,
+                        "pageNum": 1,
+                        "pageSize": 10,
+                    })
+                )
+                    .then(function (res) {
+                        self.payrollDetailList = res.data.data.result;
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            }
         }
+
     }
 
-}
 </script>
 
 <style scoped>
-.manage_con span{margin-right: 10px;}
-.manage_con .manage_select{margin-right: 30px;}
-.pay_btn{float: right;margin: 20px 0;}
+    .manage_con span {
+        margin-right: 10px;
+    }
+    
+    .manage_con .manage_select {
+        margin-right: 30px;
+    }
+    
+    .pay_btn {
+        float: right;
+        margin: 20px 0;
+    }
 </style>

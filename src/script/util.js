@@ -4,6 +4,7 @@
  * @return {String} url
  */
 exports.url = 'http://192.168.3.222:8088/hrm_test/api.do';
+exports.uploadURL = 'http://192.168.3.222:8088/hrm_test/upload.do?method=spwSalaryPay/leadSpwSalaryPays',
 
 /**
  * 时间戳转换

@@ -1,12 +1,5 @@
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: #2c3e50;
-  font-size: 14px;
-}
-/*公共初始化 可删除*/
+
+/*公共初始化*/
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td{margin:0; padding:0;}
 h1, h2, h3, h4, h5, h6{font-size:100%;}
 body{ font:12px,arial,\5b8b\4f53;}
@@ -19,9 +12,31 @@ table{border-collapse:collapse; border-spacing:0;}
 a{color:#0099ff;text-decoration:none}
 a:hover{color:#0082d5;}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
-html,body{height: 100%;}
+html,body{height: 100%;background: #f5f8fa;}
+
+/*公共组件样式*/
+.hrm_mgb15{margin-bottom: 15px;}
+.hrm_box{border: 1px solid #e5e7e9; box-shadow: 0.7px 1px 2px #dddedf;background: #fff;}
+.hrm_item{margin-bottom: 15px;}
+.hrm_item label{height: 36px;line-height: 36px;text-align: right;margin-right: 20px;min-width: 100px;display: inline-block;vertical-align: top;}
+.f_r{float: right;}
+
+.hrm_module{border-radius: 2px;margin-bottom: 20px;border: 1px solid #e5e7e9; box-shadow: 0.7px 1px 2px #dddedf;background: #fff;}
+.hrm_module_nav{background: #ecf0f3;line-height: 36px;height: 36px;padding-left: 20px;}
+.hrm_module_con {padding: 10px;}
+/*element-ui样式修改 */
+.el-tabs__header{border: 1px solid #e5e7e9; box-shadow: 0.7px 1px 2px #dddedf;background: #fff;}
+
 
 /*element样式修改*/
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+  color: #2c3e50;
+  font-size: 14px;
+}
 #app .el-menu{
     background: #fff;
 }

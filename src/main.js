@@ -6,9 +6,12 @@ import router from './router'
 import axios from 'axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+import Va from 'modules/validate.js'
+
 
 Vue.prototype.$ajax = axios
 Vue.use(ElementUI)
+Vue.use(Va)
 
 /* eslint-disable no-new */
 new Vue({

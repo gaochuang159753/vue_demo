@@ -19,12 +19,12 @@
         <el-submenu index="2">
           <template slot="title">薪资管理</template>
             <router-link class="app_nav_li el-menu-item" to="/pay/payManage" active-class="is-active">工资管理</router-link>
-            <router-link class="app_nav_li el-menu-item" to="/pay/payWages" >发放工资条</router-link>
-            <router-link class="app_nav_li el-menu-item" to="/pay/payRecord" >发放记录</router-link>
+            <router-link class="app_nav_li el-menu-item" to="/pay/payWages"  active-class="is-active">发放工资条</router-link>
+            <router-link class="app_nav_li el-menu-item" to="/pay/payRecord"  active-class="is-active">发放记录</router-link>
         </el-submenu>
         <el-submenu index="3">
-          <template slot="title">公司人事</template>
-            <el-menu-item index="3-1">公司管理</el-menu-item>
+          <template slot="title">组织人事</template>
+            <el-menu-item index="3-1">组织管理</el-menu-item>
             <el-menu-item index="3-2">职位管理</el-menu-item>
             <el-menu-item index="3-3">员工管理</el-menu-item>
         </el-submenu>
@@ -58,6 +58,6 @@ export default {
 .app_nav_access a:hover{color: #fff;background: #5f8ec9;}
 .app_nav_msg{float: right;color: #fff;padding: 0 20px;}
 .app_left{float: left; margin-left: -100%;width: 270px;}
-.app_right{float: left;width: 100%;}
+.app_right{float: left;width: 100%;background: #f5f8fa;}
 .app_right_box{margin: 20px 20px 0 290px;}
 </style>

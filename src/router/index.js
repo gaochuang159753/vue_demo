@@ -4,10 +4,11 @@ import index from 'components/index'
 import payManage from 'components/pay/payManage'
 import payRecord from 'components/pay/payRecord'
 import payWages from 'components/pay/payWages'
+import payAdjust from 'components/pay/payAdjust'
 
 
 
-import zzrs from 'components/zzrs/zzrsIndex'  
+
 import jurAccredit from 'components/jur/jurAccredit'  
 import jurRole from 'components/jur/jurRole'  
 
@@ -51,9 +52,9 @@ export default new Router({
       component: payWages
     },
     {
-      path: '/zzrs',
-      name: 'zzrs',
-      component: zzrs
+      path: '/pay/payAdjust',
+      name: 'payAdjust',
+      component: payAdjust
     },
     {
       path: '/jur/Accredit',
